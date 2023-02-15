@@ -1,0 +1,17 @@
+version: '2.4'
+services:
+  db:
+    build:
+      context: ./
+      dockerfile: ./db
+    ports:
+      - '3306:3306'
+    volumes:
+      - /var/lib/mysql
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
